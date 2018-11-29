@@ -137,7 +137,7 @@ const Comment = async function(session, accountId, text){
     const printComment = Comment ? chalk`{green Comment}` : chalk`{red Comment}`;
     return chalk`{bold.green ${printFollow}|${printComment}|[${text}]}`;
   }
-  return chalk`{bold.red Timeline Kosong (SKIPPED)}`
+  return chalk`{bold.red (SKIP BOS)}`
 };
 
 const Followers = async function(session, id){
@@ -163,11 +163,11 @@ const Excute = async function(User, TargetUsername, Sleep, mysyntx){
   try {
     console.log(chalk`{cyan \n [?] SABAR LOGIN BOS . . .}`)
     const doLogin = await Login(User);
-    console.log(chalk`{green  [!] Login Succsess, }{white [?] Try To Get ID & Followers Target . . .}`)
+    console.log(chalk`{green  [!] LOGIN SUKSES, }{white [?] Try To Get ID & Followers Target . . .}`)
     const getTarget = await Target(TargetUsername);
-    console.log(chalk`{green  [!] ${TargetUsername}: [${getTarget.id}] | Followers: [${getTarget.followers}]}`)
+    console.log(chalk`{cyan  [!] ${TargetUsername}: [${getTarget.id}] | Followers: [${getTarget.followers}]}`)
     const getFollowers = await Followers(doLogin.session, doLogin.account.id)
-    console.log(chalk`{cyan  [?] Try to Follow, Comment, and Like Followers Target . . . \n}`)
+    console.log(chalk`{red  [?] Try to Follow, Comment, and Like Followers Target . . . \n}`)
     const Targetfeed = new Client.Feed.AccountFollowers(doLogin.session, getTarget.id);
     var TargetCursor;
     do {
@@ -204,17 +204,19 @@ console.log(chalk`
   —————————————————— [INFORMATION] ————————————————————
 
   [?] {bold.red FFTauto | Follow & Comment Only!}
-  [?] {bold.green Gunakan komen.txt untk komen!}
+  [?] {bold.green HELLO MY NAME IS}
 
-  ——————————————————  [THANKS TO]  ————————————————————
-  [✓] CODE BY CYBER SCREAMER CCOCOT (ccocot@bc0de.net)
-  [✓] FIXING & TESTING BY SYNTAX (@officialputu_id)
-  [✓] CCOCOT.CO | BC0DE.NET | NAONLAH.NET | WingkoColi
-  [✓] SGB TEAM REBORN | Zerobyte.id | ccocot@bc0de.net
-                    xxBADNAME CREWxx
+   $$\      $$\ $$$$$$\ $$\   $$\  $$$$$$\  
+   $$ | $\  $$ |\_$$  _|$$$\  $$ |$$  __$$\ 
+   $$ |$$$\ $$ |  $$ |  $$$$\ $$ |$$ /  \__|
+   $$ $$ $$\$$ |  $$ |  $$ $$\$$ |\$$$$$$\  
+   $$$$  _$$$$ |  $$ |  $$ \$$$$ | \____$$\ 
+   $$$  / \$$$ |  $$ |  $$ |\$$$ |$$\   $$ |
+   $$  /   \$$ |$$$$$$\ $$ | \$$ |\$$$$$$  |
+   \__/     \__|\______|\__|  \__| \______/ 
+  
   —————————————————————————————————————————————————————
-  What's new?
-  1. Input Target/delay Manual (ITTYW)
+  Target/delay Manual (ITTYW)
   —————————————————————————————————————————————————————}
       `);
 //badnamecrew
